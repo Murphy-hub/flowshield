@@ -2,7 +2,7 @@
 RunMode = "release"
 
 # Whether to print configuration parameters at startup
-PrintConfig = true
+PrintConfig = false
 
 # Information about themselves
 [App]

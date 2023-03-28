@@ -137,7 +137,10 @@ func ParseConfigByEnv() error {
 
 func PrintWithJSON() {
 	if C.PrintConfig {
-		b, err := json.MarshalIndent(C, "", " ")
+		pConfig := *C
+		pConfig.Web3.W3S.Token = ""
+		pConfig.Web3.PrivateKey = ""
+		b, err := json.MarshalIndent(pConfig, "", " ")
 		if err != nil {
 			os.Stdout.WriteString("[CONFIG] JSON marshal error: " + err.Error())
 			return
