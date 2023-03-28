@@ -36,6 +36,9 @@ func runETH() error {
 		return err
 	}
 	privateKey, err := crypto.HexToECDSA(cfg.PrivateKey)
+	if err != nil {
+		return err
+	}
 	auth, err := bind.NewKeyedTransactorWithChainID(privateKey, chanID)
 	if err != nil {
 		return err
